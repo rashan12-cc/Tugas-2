@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Raian - SMAN 19 Bandung</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        .shake-anim { animation: shake 0.5s infinite; }
+        .bg-grid {
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans bg-grid relative overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="bg-amber-500 text-black px-2 py-1 rounded font-black text-xs uppercase tracking-widest">SMAN 19 BDG</span>
+                <span class="font-bold text-lg text-amber-400">Raian Hub</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span id="click-counter" class="text-xs font-mono bg-slate-800 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20">
+                    Sabar: 100%
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Hero Section -->
+        <section class="bg-slate-900 border-2 border-amber-500/30 rounded-2xl p-6 md:p-8 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
+                <!-- Avatar & Status -->
+                <div class="relative group">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 p-1 float-anim cursor-pointer" onclick="pokeRaian()">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center overflow-hidden relative">
+                            <span class="text-6xl select-none" id="raian-face">🗿</span>
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-2 -right-2 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase border-2 border-slate-900 animate-pulse">
+                        Bahaya ⚠️
+                    </span>
+                </div>
+
+                <!-- Info Basic -->
+                <div class="text-center md:text-left space-y-2 flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+                        <i data-lucide="crown" class="w-3.5 h-3.5"></i> Legenda SMAN 19 Bandung
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                        RAIAN <span class="text-amber-400">"THE TROLL"</span>
+                    </h1>
+                    <p class="text-slate-400 text-sm md:text-base max-w-lg">
+                        "Belajar itu penting, tapi tidur pas jam Fisika adalah seni bertaraf internasional."
+                    </p>
+                    
+                    <!-- Quick Stats -->
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs text-slate-300">
+                        <div class="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i> Pojok Kanan Belakang
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> IPK Kantin: 4.0
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <i data-lucide="shield-alert" class="w-4 h-4 text-amber-400"></i> Musuh BK
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Grid / Attributes -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Attribute Status -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+                <h2 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-5 h-5"></i> Atribut Karakter
+                </h2>
+                
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span>Kecepatan Lari Pas Liat Guru BK</span>
+                            <span class="text-amber-400">999 KM/H</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-amber-400 h-full w-[98%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span>Kekuatan Nyontek PR di Menit Terakhir</span>
+                            <span class="text-amber-400">100% (Instant)</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-400 h-full w-full"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span>Ketersediaan Uang Kas Kelas</span>
+                            <span class="text-red-400">-Rp 50.000 (Nunggak)</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-red-500 h-full w-[15%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span>Fokus Belajar</span>
+                            <span class="text-slate-400"> Error 404</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-slate-600 h-full w-[5%] animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prestasi Nyeleneh -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+                <h2 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+                    <i data-lucide="award" class="w-5 h-5"></i> Pencapaian Abadi
+                </h2>
+                
+                <ul class="space-y-2.5 text-xs text-slate-300">
+                    <li class="flex items-start gap-2 bg-slate-800/40 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-lg">🥇</span>
+                        <div>
+                            <strong class="text-white block">Juara 1 Tidur dengan Mata Terbuka</strong>
+                            Lulus uji klinis saat pelajaran Sejarah Indonesia tanpa ketahuan.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-2 bg-slate-800/40 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-lg">🏃‍♂️</span>
+                        <div>
+                            <strong class="text-white block">Rekor Ninja Kantin</strong>
+                            Berhasil beli gorengan pas jam pelajaran tanpa terdeteksi kamera CCTV sekolah.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-2 bg-slate-800/40 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-lg">🎭</span>
+                        <div>
+                            <strong class="text-white block">Aktor Terbaik Akting Sakit</strong>
+                            Sakit perut misterius yang selalu kambuh setiap ada ulangan harian.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Quote Generator -->
+        <section class="bg-gradient-to-r from-amber-500/10 via-slate-900 to-slate-900 border border-amber-500/20 rounded-xl p-6 text-center space-y-4">
+            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest">
+                💡 Generator Kata-Kata Mutiara Raian
+            </h3>
+            <p id="quote-display" class="text-lg md:text-xl italic font-serif text-slate-200">
+                "PR itu singkatan dari 'Pekerjaan Rumah', makanya kerjainnya di sekolah."
+            </p>
+            <button onclick="generateQuote()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-5 py-2.5 rounded-xl text-sm transition active:scale-95 shadow-lg shadow-amber-500/10 inline-flex items-center gap-2">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i> Acak Kata Bijak
+            </button>
+        </section>
+
+        <!-- Interactive Troll Buttons -->
+        <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 text-center space-y-4">
+            <h3 class="text-base font-bold text-slate-200">
+                Aksi Khusus Teman Sekelas
+            </h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="bayarKas()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition active:scale-95 flex items-center gap-2">
+                    <i data-lucide="wallet" class="w-4 h-4"></i> Tagih Uang Kas
+                </button>
+                <button onclick="laporGuru()" class="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition active:scale-95 flex items-center gap-2">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> Laporkan ke Guru BK
+                </button>
+                <button id="runaway-btn" onmouseover="dodgeButton()" onclick="dodgeButton()" class="bg-purple-600 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition duration-100 flex items-center gap-2">
+                    <i data-lucide="ghost" class="w-4 h-4"></i> Pinjam Pulpen Raian
+                </button>
+            </div>
+            <p id="troll-status" class="text-xs text-amber-400 font-mono h-4"></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 text-center py-6 text-slate-500 text-xs">
+        <p>© 2026 Raian Official Web - Dibuat khusus untuk hiburan SMAN 19 Bandung</p>
+        <p class="mt-1 text-slate-600">Tidak ada Raian yang disakiti dalam pembuatan website ini.</p>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Data Quotes
+        const quotes = [
+            '"PR itu singkatan dari Pekerjaan Rumah, makanya kerjainnya di sekolah."',
+            '"Tidur adalah satu-satunya cara untuk mempersingkat jam pelajaran Sejarah."',
+            '"Jangan takut gagal, takutlah kalau besok ada ulangan matematika."',
+            '"Gua bukannya gak belajar, cuma lagi nyimpen energi buat masa depan."',
+            '"Pulpen hilang di kelas 19 Bandung itu bukan gaib, tapi takdir."',
+            '"Batas waktu pengumpulan tugas adalah saran, bukan patokan."'
+        ];
+
+        const faces = ['🗿', '😎', '🤡', '👹', '😴', '🤪'];
+        let patience = 100;
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-display').innerText = quotes[randomIndex];
+            
+            // Randomize face
+            const randomFace = faces[Math.floor(Math.random() * faces.length)];
+            document.getElementById('raian-face').innerText = randomFace;
+        }
+
+        function pokeRaian() {
+            patience -= 10;
+            const counter = document.getElementById('click-counter');
+            const statusText = document.getElementById('troll-status');
+            
+            if (patience > 0) {
+                counter.innerText = `Sabar Raian: ${patience}%`;
+                statusText.innerText = "Raian: 'Woy jangan diklik-klik mulu!'";
+            } else {
+                counter.innerText = `Sabar: habis! 💥`;
+                statusText.innerText = "Raian Mode Reog Aktif!";
+                document.body.classList.add('shake-anim');
+                setTimeout(() => {
+                    document.body.classList.remove('shake-anim');
+                    patience = 100;
+                    counter.innerText = `Sabar: 100%`;
+                }, 1500);
+            }
+        }
+
+        function bayarKas() {
+            const status = document.getElementById('troll-status');
+            status.innerText = "Raian: 'Uang gua ketinggalan di dompet sepupu tetangga!'";
+        }
+
+        function laporGuru() {
+            const status = document.getElementById('troll-status');
+            status.innerText = "Raian: 'Ampun pak! Saya cuma ketiduran 5 menit doang!'";
+        }
+
+        function dodgeButton() {
+            const btn = document.getElementById('runaway-btn');
+            const x = Math.floor(Math.random() * 200) - 100;
+            const y = Math.floor(Math.random() * 100) - 50;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+            
+            const status = document.getElementById('troll-status');
+            status.innerText = "Raian: 'Pulpen gua hilang melayang bro!'";
+        }
+    </script>
+</body>
+              </html>
+  
